@@ -3,8 +3,8 @@ FROM ubuntu:20.04
 ARG BUILD_DATE
 ARG HPOOL_VERSION
 ARG DOCKER_VERSION
-LABEL build_version="Hpool Miner Version:- ${HPOOL_VERSION} Docker Version:- ${DOCKER_VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="CDPro"
+LABEL build_version="Hpool Miner Version:- 1.6.0 Docker Version:- ${DOCKER_VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="HerrSchnell"
 
 WORKDIR /hpool
 
@@ -20,7 +20,7 @@ RUN wget -O /hpool/miner.zip https://github.com/hpool-dev/chia-miner/releases/do
 	&& unzip plotter.zip \
     && mv linux/* /hpool \
 	&& mv chia-plotter/chia-plotter-linux-amd64 /hpool/plot-sign \
-	&& mv hpool-miner-chia miner \
-    && rm -R linux/ __MACOSX/ chia-plotter/ ploter.zip miner.zip config.yaml
+	&& mv hpool-miner-chia-linux-amd64 miner \
+    && rm -R linux/ __MACOSX/ chia-plotter/ plotter.zip miner.zip config.yaml
 
 CMD ["/hpool/miner"]
