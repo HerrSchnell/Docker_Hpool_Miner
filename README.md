@@ -8,7 +8,7 @@ docker run -d \
    --name=hpool-miner \
    -v {config to config.yaml file}//...config.yaml:/hpool/config.yaml:ro \
    -v {dir to plots}:/plots \
-   ghcr.io/carmichaeldylan-cdpro/docker_hpool_miner
+   ghcr.io/herrschnell/docker_hpool_miner:1.6.0
 ```
 If runing on Unraid you must add the `--network="host"` to the config to allow for connectivity
 
@@ -37,6 +37,6 @@ scanMinute: 1
 ## Creating Signature Key
 You can run this command to retrieve your signature key.
 ```sh
-docker run --network none ghcr.io/carmichaeldylan-cdpro/docker_hpool_miner ./plot-sign -action sign -sign-mnemonic "your mnemonic here"
+docker run --network none ghcr.io/herrschnell/docker_hpool_miner:1.6.0 ./plot-sign -action sign -sign-mnemonic "your mnemonic here"
 ```
 The `--network none` option is recommended to avoid any possibility that your mnemonic is sent in the process.
